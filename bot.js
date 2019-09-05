@@ -24,11 +24,6 @@ const prefix = "de";
 /////////////////////////
 ////////////////////////
 
-client.on('ready', () => {
-var x = client.channels.get("594615235168436224");
-if (x) x.join();
-});
-
 client.on('message', async msg =>{
 	if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;
