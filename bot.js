@@ -1,4 +1,4 @@
-﻿const Discord = require('discord.js');
+const Discord = require('discord.js');
 
 const Util = require('discord.js');
 
@@ -20,9 +20,14 @@ const gif = require("gif-search");
 
 const client = new Discord.Client({disableEveryone: true});
 
-const prefix = "2";
+const prefix = "de";
 /////////////////////////
 ////////////////////////
+
+client.on('ready', () => {
+var x = client.channels.get("594615235168436224");
+if (x) x.join();
+});
 
 client.on('message', async msg =>{
 	if (msg.author.bot) return undefined;
@@ -313,7 +318,7 @@ function play(guild, song) {
 
 
 client.on('message', message => {
-    if (message.content === 'help') {
+    if (message.content === 'dehelp') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر الميوزك...**')
         .setDescription('**برفكس البوت (!)**')
@@ -325,13 +330,13 @@ client.on('message', message => {
         .addField('resume', 'تكملة الاغنية')
         .addField('queue', 'اظهار قائمة التشغيل')
         .addField('np', 'اظهار الاغنية اللي انت مشغلها حاليا')
-        .setFooter('(general_commands) لاظهار الاوامر العامة')
+        .setFooter('(decmds) لاظهار الاوامر العامة')
       message.channel.send(helpEmbed);
     }
 });
 
 client.on('message', message => {
-    if (message.content === 'general_commands') {
+    if (message.content === 'decmds') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر عامة...**')
         .addField('avatar', "افاتار الشخص المطلوب")
@@ -342,15 +347,32 @@ client.on('message', message => {
     }
 });
 
-client.on('ready', () => {
-   console.log(`----------------`);
-      console.log(`Desert Bot- Script By : EX Clan`);
-        console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
-    console.log(`----------------`);
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`1play | Last Music`,"http://twitch.tv/MrBloods")
-client.user.setStatus("dnd")
+ client.on('ready', function(){
+    var ms = 10000 ;
+    var setGame = [' dehelp','decmds','Bot by دِمَــــــــآء','deplay','6 Servers'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/Devils`);
+    }, ms);
+console.log("==================================")
+console.log("1")
+console.log("2")
+console.log("3")
+console.log("=========> Bot Online <=========")
+console.log("========> TestBot <========")
+console.log("=======> Token Bot **** <=======")
+console.log("3")
+console.log("2")
+console.log("1")
+console.log("====================================")
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login('NjE4OTIxNzkwNDEyMTYxMDQ0.XXDPuQ.R4f6ckzdVeHLKl41hZYiFrwIQcM');
