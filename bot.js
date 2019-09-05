@@ -24,6 +24,34 @@ const prefix = "de";
 /////////////////////////
 ////////////////////////
 
+ client.on('ready', function(){
+    var ms = 10000 ;
+    var setGame = [' dehelp','decmds','Bot by دِمَــــــــآء','deplay','6 Servers'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/Devils`);
+    }, ms);
+console.log("==================================")
+console.log("1")
+console.log("2")
+console.log("3")
+console.log("=========> Bot Online <=========")
+console.log("========> TestBot <========")
+console.log("=======> Token Bot **** <=======")
+console.log("3")
+console.log("2")
+console.log("1")
+console.log("====================================")
+});
+
 client.on('message', async msg =>{
 	if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;
@@ -342,32 +370,4 @@ client.on('message', message => {
     }
 });
 
- client.on('ready', function(){
-    var ms = 10000 ;
-    var setGame = [' dehelp','decmds','Bot by دِمَــــــــآء','deplay','6 Servers'];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/Devils`);
-    }, ms);
-console.log("==================================")
-console.log("1")
-console.log("2")
-console.log("3")
-console.log("=========> Bot Online <=========")
-console.log("========> TestBot <========")
-console.log("=======> Token Bot **** <=======")
-console.log("3")
-console.log("2")
-console.log("1")
-console.log("====================================")
-});
-
-client.login('NjE4OTIxNzkwNDEyMTYxMDQ0.XXDPuQ.R4f6ckzdVeHLKl41hZYiFrwIQcM');
+client.login(process.env.BOT_TOKEN);// Mrbloods bot
